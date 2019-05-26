@@ -20,7 +20,7 @@ sign参数是用url中的参数计算出来的，大概流程如下：
  4. 从url中获取deviceId，并转成byte array
  5. 对3和4的结果每个字节进行相关的异或运算
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190525102703612.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dhbmdteGU=,size_16,color_FFFFFF,t_70)
- 6. 把5的结果的md5和deviceId拼接到起
+ 6. 把5的结果的md5和deviceId拼接到一起
  7. 计算6的结果的md5
 
 shield参数是由带上sign参数的url计算出来的，是通过拦截请求，在header中插入shield字段，这部分是在`process`方法中实现，`process`是一个native方法，在`libshield.so中定义`。
